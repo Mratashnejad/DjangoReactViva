@@ -1,14 +1,17 @@
 import React from "react";
 import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
+import { BrowserRouter as Router } from "react-router-dom";
 import Customlayout from "./containers/Layout";
-import Extrashiftlist from "./containers/ExtrashiftListView.js";
+import BaseRouter from "./routes";
 
 function App() {
   return (
     <div className="App">
-      <Customlayout>
-        <Extrashiftlist />
-      </Customlayout>
+      <Router>
+        <Customlayout>
+          <BaseRouter />
+        </Customlayout>
+      </Router>
     </div>
   );
 }
