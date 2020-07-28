@@ -31,7 +31,7 @@ class ExtrashiftList extends React.Component {
   } // that means after data come from api , its Update them
 
   render() {
-    return <Extrashifts data={listData} />;
+    return <Extrashifts data={this.state.Extrashifts} />;
   }
 }
 export default ExtrashiftList;
