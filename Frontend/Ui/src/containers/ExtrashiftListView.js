@@ -1,9 +1,22 @@
 import React from "react";
-import ExtrashiftList from "../components/Extrashift.js";
+import Extrashifts from "../components/Extrashift.js";
 
-class Extrashift extends React.Component {
+const listData = [];
+for (let i = 0; i < 23; i++) {
+  listData.push({
+    href: "https://ant.design",
+    title: `ant design part ${i}`,
+    avatar: "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+    description:
+      "Ant Design, a design language for background applications, is refined by Ant UED Team.",
+    content:
+      "We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.",
+  });
+}
+
+class ExtrashiftList extends React.Component {
   render() {
-    return <ExtrashiftList />;
+    return <Extrashifts data={listData} />;
   }
 }
 export default ExtrashiftList;
