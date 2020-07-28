@@ -24,7 +24,7 @@ const Customlayout = (props) => {
           <Breadcrumb.Item>List</Breadcrumb.Item>
           <Breadcrumb.Item>App</Breadcrumb.Item>
         </Breadcrumb>
-        <div className="site-layout-content">{props.children}</div>
+        <div style={{background:'#fff',padding:24,minHeight:280}} className="site-layout-content">{props.children}</div>
       </Content>
       <Footer style={{ textAlign: "center" }}>
         Vivaro Dealers ©2020 Created by Mr.Atashnejad
