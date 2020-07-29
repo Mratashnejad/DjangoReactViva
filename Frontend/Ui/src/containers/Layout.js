@@ -11,8 +11,8 @@ const Customlayout = (props) => {
       <Header>
         <div className="logo" />
         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]}>
-          <Menu.Item key="1">Home</Menu.Item>
-          <Menu.Item key="2">Extra Shift</Menu.Item>
+          <Menu.Item key="1"><Link to="/">Home</Link></Menu.Item>
+          <Menu.Item key="2"><Link to="">Extra Shift</Link></Menu.Item>
           <Menu.Item key="3">Courses</Menu.Item>
           <Avatar icon={<UserOutlined />} />
 
