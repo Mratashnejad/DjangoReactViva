@@ -2,6 +2,7 @@ import React from "react";
 import { Layout, Menu, Breadcrumb } from "antd";
 import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
+import { Link } from "react-router-dom";
 
 const { Header, Content, Footer } = Layout;
 const Customlayout = (props) => {
@@ -20,11 +21,19 @@ const Customlayout = (props) => {
       </Header>
       <Content style={{ padding: "0 50px" }}>
         <Breadcrumb style={{ margin: "16px 0" }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Link to="/">Home</Link>
+          </Breadcrumb.Item>
+          <Breadcrumb.Item>
+            <Link>List</Link>
+          </Breadcrumb.Item>
         </Breadcrumb>
-        <div style={{background:'#fff',padding:24,minHeight:280}} className="site-layout-content">{props.children}</div>
+        <div
+          style={{ background: "#fff", padding: 24, minHeight: 280 }}
+          className="site-layout-content"
+        >
+          {props.children}
+        </div>
       </Content>
       <Footer style={{ textAlign: "center" }}>
         Vivaro Dealers ©2020 Created by Mr.Atashnejad
