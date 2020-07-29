@@ -56,7 +56,7 @@ const Extrashifts = (props) => {
         >
           <List.Item.Meta
             avatar={<Avatar src={item.avatar} />}
-            title={<a href={item.href}>{item.title}</a>}
+            title={<a href={`/${item.id}`}>{item.title}</a>} //link to the Extrashift Items Detaill view
             description={item.description}
           />
           {item.content}

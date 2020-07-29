@@ -5,5 +5,5 @@ from Extrashift.models import Extrashift
 class ExtrashiftSerializers(serializers.ModelSerializer):
     class Meta:
         model = Extrashift
-        fields = ('title', 'slug', 'datetime', 'manager',
+        fields = ('id', 'title', 'slug', 'datetime', 'manager',
                   'quantity', 'gender', 'Lable', 'language')
