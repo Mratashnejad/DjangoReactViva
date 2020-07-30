@@ -4,7 +4,8 @@ from .Serializers import ExtrashiftSerializers
 from rest_framework.generics import (
     ListAPIView,
     RetrieveAPIView,
-    CreateAPIView
+    CreateAPIView,
+    UpdateAPIView
 )
 
 #its for List API Object View
@@ -19,5 +20,10 @@ class ExtrashiftDetailView(RetrieveAPIView):
 
 #its for Create New Object View
 class ExtrashiftCreateView(CreateAPIView):
+    queryset = Extrashift.objects.all()
+    serializer_class = ExtrashiftSerializers
+
+#its for Updateing Object View After the object got some Change
+class ExtrashiftUpdateView(UpdateAPIView):
     queryset = Extrashift.objects.all()
     serializer_class = ExtrashiftSerializers
