@@ -1,9 +1,10 @@
 from django.urls import path, include
 from .views import (
     ExtrashiftListView,
-    ExtrashiftDetailView,
     ExtrashiftCreateView,
-    ExtrashiftUpdateView
+    ExtrashiftDetailView,
+    ExtrashiftUpdateView,
+    ExtrashiftDeleteView
 )
 
 
@@ -12,4 +13,5 @@ urlpatterns = [
     path('create/', ExtrashiftCreateView.as_view()),
     path('<pk>', ExtrashiftDetailView.as_view()),
     path('<pk>/update/', ExtrashiftUpdateView.as_view()),
+    path('<pk>/delete/', ExtrashiftDeleteView.as_view()),
 ]
