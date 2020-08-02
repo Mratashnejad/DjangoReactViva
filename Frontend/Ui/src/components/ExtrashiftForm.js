@@ -16,6 +16,15 @@ class ExtrashiftForm extends React.Component {
           <FormItem name="title" label="Title">
             <Input placeholder="title here" />
           </FormItem>
+          <FormItem name="manager" label="Manager">
+            <Input placeholder="select Manager Name .. " />
+          </FormItem>
+          <FormItem name="gender" label="Gender">
+            <Input placeholder="select Gender Type .. " />
+          </FormItem>
+          <FormItem name="datetime" label="DateTime">
+            <Input />
+          </FormItem>
           <FormItem>
             <Button type="primary" htmlType="submit">
               Submit
