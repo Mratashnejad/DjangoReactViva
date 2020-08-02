@@ -1,22 +1,13 @@
 import React from "react";
-import { Form, Input, Button } from "antd";
+import { Form, Input, Button, Select, Switch, DatePicker } from "antd";
 
 const FormItem = Form.Item;
 
 class ExtrashiftForm extends React.Component {
-  handleFormSubmit = (event) => {
-    event.preventDefault();
-    const title = event.target.elements.title.value;
-    const manager = event.target.elements.manager.value;
-    const gender = event.target.elements.gender.value;
-    const Lable = event.target.elements.Lable.value;
-    const datetime = event.target.elements.datetime.value;
-    console.log(title, manager, gender, Lable, datetime);
-  };
   render() {
     return (
       <div>
-        <Form onSubmit={this.handleFormSubmit}>
+        <Form onFinish={(values) => console.log(values)}>
           <FormItem name="title" label="Title">
             <Input placeholder="title here" />
           </FormItem>
@@ -29,9 +20,10 @@ class ExtrashiftForm extends React.Component {
           <FormItem name="Lable" label="Lable">
             <Input />
           </FormItem>
-          <FormItem name="datetime" label="DateTime">
-            <Input />
-          </FormItem>
+
+          <Form.Item name="date-picker" label="DatePicker">
+            <DatePicker />
+          </Form.Item>
           <FormItem>
             <Button type="primary" htmlType="submit">
               Ok
