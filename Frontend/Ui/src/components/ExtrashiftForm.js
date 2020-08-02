@@ -7,6 +7,10 @@ class ExtrashiftForm extends React.Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     const title = event.target.elements.title.value;
+    const manager = event.target.elements.manager.value;
+    const gender = event.target.elements.gender.value;
+    const Labale = event.target.elements.Labale.value;
+    const datetime = event.target.elements.datetime.value;
     console.log(title);
   };
   render() {
