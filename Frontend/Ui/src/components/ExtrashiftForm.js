@@ -32,21 +32,29 @@ const config = {
   rules: [{ type: "object", required: true, message: "Please select time!" }],
 };
 
-const onFinish = (values) => {
-  console.log(values);
-};
-
 class ExtrashiftForm extends React.Component {
+  handleFormSubmit = (event) => {
+    event.preventDefault();
+    const title = event.target.elements.title.value;
+    const manager = event.target.elements.manager.value;
+    const datetime = event.target.elements.datetime.value;
+    const language = event.target.elements.language.value;
+    const gender = event.target.elements.gender.value;
+    const quantity = event.target.elements.quantity.value;
+    const Lable = event.target.elements.Lable.value;
+    console.log(title, manager, datetime, language, gender, quantity, Lable);
+  };
+
   render() {
     return (
       <Form
         {...layout}
         name="nest-messages"
-        onFinish={onFinish}
+        onSubmit={this.handleFormSubmit}
         validateMessages={validateMessages}
       >
         <Form.Item
-          name={["user", "name"]}
+          name={"title"}
           label="Title"
           rules={[
             {
@@ -57,12 +65,12 @@ class ExtrashiftForm extends React.Component {
           <Input />
         </Form.Item>
 
-        <Form.Item name="date-picker" label="DatePicker" {...config}>
+        <Form.Item name="datetime" label="DatePicker" {...config}>
           <DatePicker />
         </Form.Item>
 
         <Form.Item
-          name="select-multiple-Gender"
+          name="gender"
           label="Gender"
           hasFeedback
           rules={[
@@ -81,7 +89,7 @@ class ExtrashiftForm extends React.Component {
 
         {/* Manager DropDown Manage */}
         <Form.Item
-          name="select-Manager"
+          name="manager"
           label="Manager"
           hasFeedback
           rules={[
@@ -96,7 +104,7 @@ class ExtrashiftForm extends React.Component {
         {/* End Manager DropDown Manage */}
 
         <Form.Item
-          name="select-multiple-Language"
+          name="language"
           label="Language"
           rules={[
             {
@@ -114,7 +122,7 @@ class ExtrashiftForm extends React.Component {
         </Form.Item>
 
         <Form.Item
-          name={["user", "age"]}
+          name={"quantity"}
           label="Quaintity"
           rules={[
             {
@@ -127,7 +135,7 @@ class ExtrashiftForm extends React.Component {
           <InputNumber />
         </Form.Item>
 
-        <Form.Item name="switch" label="Urgent" valuePropName="checked">
+        <Form.Item name="Lable" label="Urgent" valuePropName="checked">
           <Switch />
         </Form.Item>
 
