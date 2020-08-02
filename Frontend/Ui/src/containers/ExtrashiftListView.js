@@ -41,7 +41,7 @@ class ExtrashiftList extends React.Component {
         </div>
 
         <div>
-          <h2>Create Extrashift from</h2>
+          <h2>Extrashift From</h2>
           <br />
         
           <ExtrashiftForm />
