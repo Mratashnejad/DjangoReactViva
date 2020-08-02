@@ -1,7 +1,16 @@
 import React from "react";
-import { Form, Input, Button, Select, Switch, DatePicker } from "antd";
+import {
+  Form,
+  Input,
+  Button,
+  Select,
+  Switch,
+  DatePicker,
+  InputNumber,
+} from "antd";
 
 const FormItem = Form.Item;
+const { Option } = Select;
 
 class ExtrashiftForm extends React.Component {
   render() {
@@ -11,9 +20,18 @@ class ExtrashiftForm extends React.Component {
           <FormItem name="title" label="Title">
             <Input placeholder="title here" />
           </FormItem>
-          <FormItem name="manager" label="Manager">
-            <Input placeholder="select Manager Name .. " />
-          </FormItem>
+          <Form.Item
+            name="manager"
+            label="Manager"
+            hasFeedback
+            rules={[{ required: true, message: "Please select manager!" }]}
+          >
+            <Select placeholder="Please select a manager">
+              <Option value="Sa">Sargis</Option>
+              <Option value="La">Lara</Option>
+            </Select>
+          </Form.Item>
+
           <Form.Item
             name="gender"
             label="Gender"
@@ -31,10 +49,15 @@ class ExtrashiftForm extends React.Component {
             </Select>
           </Form.Item>
 
-          <FormItem name="Lable" label="Lable">
-            <Input />
-          </FormItem>
-
+          <Form.Item name="Lable" label="Lable" valuePropName="checked">
+            <Switch />
+          </Form.Item>
+          <Form.Item label="quantity">
+            <Form.Item name="quantity" noStyle>
+              <InputNumber min={1} max={10} />
+            </Form.Item>
+            <span className="ant-form-text">needs</span>
+          </Form.Item>
           <Form.Item name="date-picker" label="DatePicker">
             <DatePicker />
           </Form.Item>
