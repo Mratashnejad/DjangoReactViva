@@ -14,9 +14,23 @@ class ExtrashiftForm extends React.Component {
           <FormItem name="manager" label="Manager">
             <Input placeholder="select Manager Name .. " />
           </FormItem>
-          <FormItem name="gender" label="Gender">
-            <Input placeholder="select Gender Type .. " />
-          </FormItem>
+          <Form.Item
+            name="gender"
+            label="Gender"
+            rules={[
+              {
+                required: true,
+                message: "Please select Gender !",
+                type: "array",
+              },
+            ]}
+          >
+            <Select mode="multiple" placeholder="Please select Gender !">
+              <Option value="red">Female</Option>
+              <Option value="green">Male</Option>
+            </Select>
+          </Form.Item>
+
           <FormItem name="Lable" label="Lable">
             <Input />
           </FormItem>
