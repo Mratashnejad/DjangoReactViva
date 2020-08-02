@@ -34,10 +34,16 @@ class ExtrashiftList extends React.Component {
   render() {
     return (
       <div>
-        <Extrashifts data={this.state.Extrashifts} />
+        <div>
+          <Extrashifts data={this.state.Extrashifts} />
+          <br />
+        </div>
 
-        <h2>Create Extrashift from</h2>
-        <ExtrashiftForm />
+        <div>
+          <h2>Create Extrashift from</h2>
+          <br />
+          <ExtrashiftForm />
+        </div>
       </div>
     );
   }
