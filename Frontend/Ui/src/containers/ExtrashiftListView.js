@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Extrashifts from "../components/Extrashift.js";
-
+import ExtrashiftForm from "../components/ExtrashiftForm.js";
 
 const listData = [];
 for (let i = 0; i < 23; i++) {
@@ -32,7 +32,14 @@ class ExtrashiftList extends React.Component {
   } // that means after data come from api , its Update them
 
   render() {
-    return <Extrashifts data={this.state.Extrashifts} />;
+    return (
+      <div>
+        <Extrashifts data={this.state.Extrashifts} />
+
+        <h2>Create Extrashift from</h2>
+        <ExtrashiftForm />
+      </div>
+    );
   }
 }
 export default ExtrashiftList;
