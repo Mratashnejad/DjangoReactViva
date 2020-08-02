@@ -9,9 +9,9 @@ class ExtrashiftForm extends React.Component {
     const title = event.target.elements.title.value;
     const manager = event.target.elements.manager.value;
     const gender = event.target.elements.gender.value;
-    const Labale = event.target.elements.Labale.value;
+    const Lable = event.target.elements.Lable.value;
     const datetime = event.target.elements.datetime.value;
-    console.log(title);
+    console.log(title, manager, gender, Lable, datetime);
   };
   render() {
     return (
@@ -26,7 +26,7 @@ class ExtrashiftForm extends React.Component {
           <FormItem name="gender" label="Gender">
             <Input placeholder="select Gender Type .. " />
           </FormItem>
-          <FormItem name="Labale" label="Labale">
+          <FormItem name="Lable" label="Lable">
             <Input />
           </FormItem>
           <FormItem name="datetime" label="DateTime">
@@ -34,7 +34,7 @@ class ExtrashiftForm extends React.Component {
           </FormItem>
           <FormItem>
             <Button type="primary" htmlType="submit">
-              Submit
+              Ok
             </Button>
           </FormItem>
         </Form>
