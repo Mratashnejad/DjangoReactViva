@@ -17,28 +17,21 @@ const { Option } = Select;
 //   console.log(values);
 // };
 
-
 class ExtrashiftForm extends React.Component {
-  handleFormSubmit = (event, requestType) => {
-    event.preventDefault();
-    const title = event.target.elements.title.value;
-  
-    switch (requestType) {
-      case "post":
-        axios.post("http://127.0.0.1:8000/api", {
-          title: title,
-        });
-        case "put":
-        axios.put("http://127.0.0.1:8000/api", {
-          title: title,
-        });
-    }
+  handleFormSubmit = (values) => {
+    const title = values.title;
+    const manager = values.manager;
+    const datetime = values.datetime;
+    const gender = values.gender;
+    const Lable = values.Lable;
+    const quantity = values.quantity;
+    console.log(title, manager, datetime, gender, Lable, quantity);
   };
   render() {
     return (
       <div>
         {/* <Form onFinish={(values) => console.log(values)}> */}
-        <Form onFinish={(this.handleFormSubmit)}>
+        <Form onFinish={(values) => this.handleFormSubmit(values)}>
           <FormItem name="title" label="Title">
             <Input placeholder="title here" />
           </FormItem>
