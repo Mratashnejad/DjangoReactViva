@@ -12,16 +12,29 @@ import {
 
 const FormItem = Form.Item;
 const { Option } = Select;
-const onFinish = values => {
-  
-  console.log(values);
-};
+// const onFinish = values => {
+
+//   console.log(values);
+// };
+
 
 class ExtrashiftForm extends React.Component {
+  handleFormSubmit = (event, requestType) => {
+    event.preventDefault();
+    const title = event.target.elements.title.value;
+  
+    switch (requestType) {
+      case "post":
+        axios.post("http://127.0.0.1:8000/api", {
+          title: title,
+        });
+    }
+  };
   render() {
     return (
       <div>
-        <Form onFinish={(values) => console.log(values)}>
+        {/* <Form onFinish={(values) => console.log(values)}> */}
+        <Form onFinish={(this.handleFormSubmit)}>
           <FormItem name="title" label="Title">
             <Input placeholder="title here" />
           </FormItem>
