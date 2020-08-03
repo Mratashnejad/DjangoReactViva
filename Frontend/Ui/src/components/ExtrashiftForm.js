@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {
   Form,
   Input,
@@ -11,6 +12,10 @@ import {
 
 const FormItem = Form.Item;
 const { Option } = Select;
+const onFinish = values => {
+  
+  console.log(values);
+};
 
 class ExtrashiftForm extends React.Component {
   render() {
