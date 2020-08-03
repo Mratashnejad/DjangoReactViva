@@ -28,6 +28,10 @@ class ExtrashiftForm extends React.Component {
         axios.post("http://127.0.0.1:8000/api", {
           title: title,
         });
+        case "put":
+        axios.put("http://127.0.0.1:8000/api", {
+          title: title,
+        });
     }
   };
   render() {
