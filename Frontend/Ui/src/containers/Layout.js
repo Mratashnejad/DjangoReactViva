@@ -9,8 +9,7 @@ const Customlayout = (props) => {
   return (
     <Layout className="layout">
       <Header>
-        <title style={{ color: "red" }}>Extra Shift Manager</title>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["1"]}>
+        <Menu theme="light" mode="horizontal" defaultSelectedKeys={["1"]}>
           <Menu.Item key="1">
             <Link to="/">Home</Link>
           </Menu.Item>
@@ -23,12 +22,8 @@ const Customlayout = (props) => {
           <Menu.Item key="4">
             <Link to="/about">About Us</Link>
           </Menu.Item>
-          <Avatar style={{ float: "right" }} icon={<UserOutlined />} />
-
-          {/* <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" /> */}
+          <Avatar style={{}} icon={<UserOutlined />} />
         </Menu>
-
-        <div className="logo" />
       </Header>
 
       <Content style={{ padding: "0 50px" }}>
@@ -37,7 +32,7 @@ const Customlayout = (props) => {
             <Link to="/">Home</Link>
           </Breadcrumb.Item>
           <Breadcrumb.Item>
-            <Link>List</Link>
+            <Link></Link>
           </Breadcrumb.Item>
         </Breadcrumb>
         <div
