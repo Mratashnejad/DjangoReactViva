@@ -8,9 +8,9 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Customlayout>
+        {/* <Customlayout> */}
           <BaseRouter />
-        </Customlayout>
+        {/* </Customlayout> */}
       </Router>
     </div>
   );
