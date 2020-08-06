@@ -8,8 +8,8 @@ import About from "./containers/About.js";
 import index from "./Home/index.jsx";
 const BaseRouter = () => (
   <div>
-    <Route exact path="/" component={index} />
-    <Route exact path="/HomePage" component={HomePage} />
+    {/* <Route exact path="/HomePage" component={index} /> */}
+    <Route exact path="/" component={HomePage} />
     <Route exact path="/extrashift" component={ExtrashiftList} />
     <Route exact path="/:extrashiftID" component={ExtrashiftDetail} />
     <Route exact path="/courses" component={Courses} />
