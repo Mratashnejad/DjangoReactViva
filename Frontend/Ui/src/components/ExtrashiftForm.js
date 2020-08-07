@@ -18,7 +18,7 @@ const { Option } = Select;
 // };
 
 class ExtrashiftForm extends React.Component {
-  handleFormSubmit = (values) => {
+  handleFormSubmit = (values, requestType, ExtrashiftID) => {
     const title = values.title;
     const manager = values.manager;
     const datetime = values.datetime;
@@ -26,12 +26,43 @@ class ExtrashiftForm extends React.Component {
     const Lable = values.Lable;
     const quantity = values.quantity;
     console.log(title, manager, datetime, gender, Lable, quantity);
+
+    switch (requestType) {
+      case "post":
+        return axios
+          .post("url://127.0.0.1:8000/api/", {
+            title: title,
+            manager: manager,
+            datetime: datetime,
+            gender: gender,
+            Lable: Lable,
+            quantity: quantity,
+          })
+          .then((res) => console.log(res))
+          .catch((err) => console.err(err));
+      case "put":
+        return axios
+          .put(`http://127.0.0.1:8000/api/${ExtrashiftID}/`, {
+            title: title,
+            manager: manager,
+            datetime: datetime,
+            gender: gender,
+            Lable: Lable,
+            quantity: quantity,
+          })
+          .then((res) => console.log(res))
+          .catch((err) => console.err(err));
+    }
   };
   render() {
     return (
       <div>
         {/* <Form onFinish={(values) => console.log(values)}> */}
-        <Form onFinish={(values) => this.handleFormSubmit(values)}>
+        <Form
+          onFinish={(values) =>
+            this.handleFormSubmit(values, this.props.values)
+          }
+        >
           <FormItem name="title" label="Title">
             <Input placeholder="title here" />
           </FormItem>

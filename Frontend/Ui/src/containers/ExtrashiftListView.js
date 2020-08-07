@@ -38,7 +38,7 @@ class ExtrashiftList extends React.Component {
         <br />
         <h2>Extrashift From</h2>
         <br />
-        <ExtrashiftForm />
+        <ExtrashiftForm requestType="post" ExtrashiftID={null} />
       </div>
     );
   }
