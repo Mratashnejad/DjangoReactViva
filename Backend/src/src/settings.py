@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework',
     'Extrashift',
-    
+
 ]
 
 MIDDLEWARE = [
@@ -41,7 +41,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    
+
 ]
 
 ROOT_URLCONF = 'src.urls'
@@ -123,4 +123,4 @@ REST_FRAMEWORK = {
     ]
 }
 
-CORS_ORIGIN_ALLOW_ALL =True
+CORS_ORIGIN_ALLOW_ALL = True

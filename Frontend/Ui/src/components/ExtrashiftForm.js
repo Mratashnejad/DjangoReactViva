@@ -57,7 +57,6 @@ class ExtrashiftForm extends React.Component {
   render() {
     return (
       <div>
-        {/* <Form onFinish={(values) => console.log(values)}> */}
         <Form
           onFinish={(values) =>
             this.handleFormSubmit(values, this.props.values)
