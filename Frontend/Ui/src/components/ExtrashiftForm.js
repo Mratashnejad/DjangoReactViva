@@ -25,11 +25,36 @@ class ExtrashiftForm extends React.Component {
     const gender = values.gender;
     const Lable = values.Lable;
     const quantity = values.quantity;
-    console.log(title, manager, datetime, gender, Lable, quantity);
+    // console.log(title, manager, datetime, gender, Lable, quantity);
 
-    switch (requestType) {
-      case "post":
-        return axios
+    // switch (requestType) {
+    //   case "post":
+    //     return axios
+    //       .post("url://127.0.0.1:8000/api/", {
+    //         title: title,
+    //         manager: manager,
+    //         datetime: datetime,
+    //         gender: gender,
+    //         Lable: Lable,
+    //         quantity: quantity,
+    //       })
+    //       .then((res) => console.log(res))
+    //       .catch((err) => console.err(err));
+    //   case "put":
+    //     return axios
+    //       .put(`http://127.0.0.1:8000/api/${ExtrashiftID}/`, {
+    //         title: title,
+    //         manager: manager,
+    //         datetime: datetime,
+    //         gender: gender,
+    //         Lable: Lable,
+    //         quantity: quantity,
+    //       })
+    //       .then((res) => console.log(res))
+    //       .catch((err) => console.err(err));
+    // }
+
+    return axios
           .post("url://127.0.0.1:8000/api/", {
             title: title,
             manager: manager,
@@ -39,20 +64,7 @@ class ExtrashiftForm extends React.Component {
             quantity: quantity,
           })
           .then((res) => console.log(res))
-          .catch((err) => console.err(err));
-      case "put":
-        return axios
-          .put(`http://127.0.0.1:8000/api/${ExtrashiftID}/`, {
-            title: title,
-            manager: manager,
-            datetime: datetime,
-            gender: gender,
-            Lable: Lable,
-            quantity: quantity,
-          })
-          .then((res) => console.log(res))
-          .catch((err) => console.err(err));
-    }
+          .catch((err) => console.error(err));
   };
   render() {
     return (
