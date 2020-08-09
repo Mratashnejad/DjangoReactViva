@@ -18,14 +18,8 @@ const { Option } = Select;
 // };
 
 class ExtrashiftForm extends React.Component {
-  handleFormSubmit = (values, requestType, ExtrashiftID) => {
-    const title = values.title;
-    const manager = values.manager;
-    const datetime = values.datetime;
-    const gender = values.gender;
-    const Lable = values.Lable;
-    const quantity = values.quantity;
-    // console.log(title, manager, datetime, gender, Lable, quantity);
+  handleFormSubmit = async (event, requestType, articleID) => {
+    event.preventDefault();
 
     // switch (requestType) {
     //   case "post":
@@ -55,16 +49,16 @@ class ExtrashiftForm extends React.Component {
     // }
 
     return axios
-          .post("url://127.0.0.1:8000/api/", {
-            title: title,
-            manager: manager,
-            datetime: datetime,
-            gender: gender,
-            Lable: Lable,
-            quantity: quantity,
-          })
-          .then((res) => console.log(res))
-          .catch((err) => console.error(err));
+      .post("url://127.0.0.1:8000/api/", {
+        title: title,
+        manager: manager,
+        datetime: datetime,
+        gender: gender,
+        Lable: Lable,
+        quantity: quantity,
+      })
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
   };
   render() {
     return (
