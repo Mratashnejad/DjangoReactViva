@@ -3,7 +3,7 @@ import axios from "axios";
 import Extrashifts from "../components/Extrashift";
 import ExtrashiftForm from "../components/ExtrashiftForm";
 
-class Extrashiftlist extends React.Component {
+class ExtrashiftlistView extends React.Component {
   state = {
     Extrashifts: [],
   };
@@ -36,9 +36,10 @@ class Extrashiftlist extends React.Component {
           ExtrashiftID={null}
           btnText="Create"
         />
+
       </div>
     );
   }
 }
 
-export default Extrashiftlist;
+export default ExtrashiftlistView;
