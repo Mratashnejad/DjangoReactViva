@@ -6,14 +6,6 @@ import * as actions from "../store/actions/auth";
 
 const { Header, Content, Footer } = Layout;
 const { Search } = Input;
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: "#1890ff",
-    }}
-  />
-);
 
 class CustomLayout extends React.Component {
   render() {
@@ -38,7 +30,7 @@ class CustomLayout extends React.Component {
             )}
 
             <Menu.Item key="1">
-              <Link to="/">Posts</Link>
+              <Link to="/extrashift">Posts</Link>
             </Menu.Item>
             <Search
               placeholder="input search text"
@@ -74,4 +66,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(CustomLayout));
+export default CustomLayout;
