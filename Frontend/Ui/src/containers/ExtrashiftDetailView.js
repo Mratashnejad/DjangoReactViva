@@ -1,32 +1,66 @@
 import React from "react";
 import axios from "axios";
-import { Card } from "antd";
+import { connect } from "react-redux";
+import { Button, Card } from "antd";
+import ExtrashiftForm from "../components/ExtrashiftForm";
 
-class ExtrashiftDetail extends React.Component {
+class ExtrashiftDetailView extends React.Component {
   state = {
     Extrashift: {},
   };
+
   componentDidMount() {
-    const ExtrashiftID = this.props.match.params.ExtrashiftID;
+    const articleID = this.props.match.params.articleID;
     axios.get(`http://127.0.0.1:8000/api/${ExtrashiftID}`).then((res) => {
       this.setState({
         Extrashift: res.data,
       });
     });
-  } // that means after data come from api , its Update them
+  }
+
+  handleDelete = (event) => {
+    event.preventDefault();
+    const ExtrashiftID = this.props.match.params.ExtrashiftID;
+    axios.defaults.headers = {
+      "Content-Type": "application/json",
+      Authorization: `Token ${this.props.token}`,
+    };
+    axios
+      .delete(`http://127.0.0.1:8000/api/${ExtrashiftID}/delete/`)
+      .then((res) => {
+        if (res.status === 204) {
+          this.props.history.push(`/`);
+        }
+      });
+  };
 
   render() {
     return (
-      <Card title={this.state.Extrashift.title}>
-        <p> {this.state.Extrashift.datetime} </p>
-        <p> {this.state.Extrashift.manager} </p>
-        <p> {this.state.Extrashift.quantity} </p>
-        <p> {this.state.Extrashift.gender} </p>
-        <p> {this.state.Extrashift.Lable} </p>
-        <p> {this.state.Extrashift.language} </p>
-      </Card>
+      <div>
+        <Card title={this.state.Extrashift.title}>
+          <p> {this.state.Extrashift.manager} </p>
+        </Card>
+        <CustomForm
+          {...this.props}
+          token={this.props.token}
+          requestType="put"
+          articleID={this.props.match.params.ExtrashiftID}
+          btnText="Update"
+        />
+        <form onSubmit={this.handleDelete}>
+          <Button type="danger" htmlType="submit">
+            Delete
+          </Button>
+        </form>
+      </div>
     );
   }
 }
 
-export default ExtrashiftDetail;
+const mapStateToProps = (state) => {
+  return {
+    token: state.token,
+  };
+};
+
+export default connect(mapStateToProps)(ExtrashiftDetailView);
