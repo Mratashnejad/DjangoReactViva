@@ -19,9 +19,14 @@ const { Option } = Select;
 // };
 
 class ExtrashiftForm extends React.Component {
-  handleFormSubmit = async (event, requestType, articleID) => {
+  handleFormSubmit = async (event, requestType, ExtrashiftID) => {
     event.preventDefault();
+    const postObj = {
+      title: event.target.elements.title.value,
+      manager: event.target.elements.manager.value
+    }
 
+    
     // switch (requestType) {
     //   case "post":
     //     return axios
