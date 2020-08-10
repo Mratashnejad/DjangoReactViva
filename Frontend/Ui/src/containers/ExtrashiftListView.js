@@ -3,7 +3,7 @@ import axios from "axios";
 import Extrashifts from "../components/Extrashift";
 import ExtrashiftForm from "../components/ExtrashiftForm";
 
-class ArticleList extends React.Component {
+class Extrashiftlist extends React.Component {
   state = {
     Extrashifts: [],
   };

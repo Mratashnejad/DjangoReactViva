@@ -10,7 +10,7 @@ class ExtrashiftDetailView extends React.Component {
   };
 
   componentDidMount() {
-    const articleID = this.props.match.params.articleID;
+    const ExtrashiftID = this.props.match.params.ExtrashiftID;
     axios.get(`http://127.0.0.1:8000/api/${ExtrashiftID}`).then((res) => {
       this.setState({
         Extrashift: res.data,
@@ -40,11 +40,11 @@ class ExtrashiftDetailView extends React.Component {
         <Card title={this.state.Extrashift.title}>
           <p> {this.state.Extrashift.manager} </p>
         </Card>
-        <CustomForm
+        <ExtrashiftForm
           {...this.props}
           token={this.props.token}
           requestType="put"
-          articleID={this.props.match.params.ExtrashiftID}
+          ExtrashiftID={this.props.match.params.ExtrashiftID}
           btnText="Update"
         />
         <form onSubmit={this.handleDelete}>
