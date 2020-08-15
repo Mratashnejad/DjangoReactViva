@@ -5,10 +5,10 @@ GENDER_CHOICES = (
     ('M', 'Male'),
 )
 MANAGER_CHOICES = (
-    ('SA', 'SARGIES'),
-    ('MA', 'MARIKA'),
-    ('LA', 'LARA'),
-    ('TA', 'TIGRAN'),
+    ('PB', 'Pitbuz'),
+    ('LA', 'LiveSupport'),
+    ('SM', 'ShiftManager'),
+    ('O', 'Other'),
 )
 LABALE_CHOICES = (
     ('U', 'URGENT'),
