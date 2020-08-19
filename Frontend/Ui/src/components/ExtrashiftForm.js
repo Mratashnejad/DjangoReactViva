@@ -69,10 +69,5 @@ class ExtrashiftForm extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    token: state.token
-  };
-};
 
-export default connect(mapStateToProps)(ExtrashiftForm);
+export default ExtrashiftForm;
