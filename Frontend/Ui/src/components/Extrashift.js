@@ -1,6 +1,6 @@
 import React from "react";
 import { List, Avatar, Space } from "antd";
-import { MessageOutlined, LikeOutlined, StarOutlined } from "@ant-design/icons";
+
 
 const IconText = ({ icon, text }) => (
   <Space>
@@ -21,11 +21,6 @@ const Extrashifts = (props) => {
         pageSize: 3,
       }}
       dataSource={props.data}
-      footer={
-        <div>
-          <b>ant design</b> footer part
-        </div>
-      }
       renderItem={(item) => (
         <List.Item
           key={item.title}
@@ -56,7 +51,7 @@ const Extrashifts = (props) => {
         >
           <List.Item.Meta
             avatar={<Avatar src={item.avatar} />}
-            title={<a href={`/${item.id}`}>{item.title}</a>} //link to the Extrashift Items Detaill view
+            title={<a href={`/extrashifts/${item.id}`}>{item.title}</a>} //link to the Extrashift Items Detaill view
             description={item.description}
           />
           {item.content}
