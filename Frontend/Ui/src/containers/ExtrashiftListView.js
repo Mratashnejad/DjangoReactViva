@@ -30,13 +30,12 @@ class ExtrashiftlistView extends React.Component {
     return (
       <div>
         <Extrashifts data={this.state.Extrashifts} /> <br />
-        <h2> Create an article </h2>
+        <h2> Create an Extrashift </h2>
         <ExtrashiftForm
           requestType="post"
           ExtrashiftID={null}
           btnText="Create"
         />
-
       </div>
     );
   }
