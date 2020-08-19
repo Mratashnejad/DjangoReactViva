@@ -27,15 +27,23 @@ class CustomLayout extends React.Component {
                 <Link to="/login">Login</Link>
               </Menu.Item>
             )} */}
-
+            <Menu.Item key="2">
+              <Link to="/homepage">Home</Link>
+            </Menu.Item>
             <Menu.Item key="1">
-              <Link to="/extrashift">Extra Shift </Link>
+              <Link to="/extrashift">Extra Shift</Link>
             </Menu.Item>
             <Search
               placeholder="input search text"
               onSearch={(value) => console.log(value)}
-              style={{ width: 1000 }}
+              style={{ width: '60%' }}
             />
+            <Menu.Item key="3">
+              <Link to="/Login">Login</Link>
+            </Menu.Item> 
+            <Menu.Item key="4">
+              <Link to="/logout">logout</Link>
+            </Menu.Item>
           </Menu>
         </Header>
         <Content style={{ padding: "0 50px" }}>
