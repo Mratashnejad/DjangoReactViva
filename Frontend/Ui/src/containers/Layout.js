@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout, Menu, Breadcrumb, Input } from "antd";
 import { Link, withRouter } from "react-router-dom";
+import { connect } from 'react-redux';
 
 const { Header, Content, Footer } = Layout;
 const { Search } = Input;
@@ -58,4 +59,4 @@ class CustomLayout extends React.Component {
   }
 }
 
-export default CustomLayout;
+export default withRouter(connect(null,mapDispatchToProps)(CustomLayout));
