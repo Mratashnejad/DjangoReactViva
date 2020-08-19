@@ -1,8 +1,6 @@
 import React from "react";
 import { Layout, Menu, Breadcrumb, Input } from "antd";
 import { Link, withRouter } from "react-router-dom";
-import { connect } from "react-redux";
-import * as actions from "../store/actions/auth";
 
 const { Header, Content, Footer } = Layout;
 const { Search } = Input;
@@ -30,7 +28,7 @@ class CustomLayout extends React.Component {
             )}
 
             <Menu.Item key="1">
-              <Link to="/extrashift">Posts</Link>
+              <Link to="/extrashift">Extra Shift </Link>
             </Menu.Item>
             <Search
               placeholder="input search text"
@@ -53,17 +51,11 @@ class CustomLayout extends React.Component {
           </div>
         </Content>
         <Footer style={{ textAlign: "center" }}>
-          Ant Design ©2016 Created by Ant UED
+          Ali Design ©2016 Created by Mr.Atashnejad
         </Footer>
       </Layout>
     );
   }
 }
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    logout: () => dispatch(actions.logout()),
-  };
-};
 
 export default CustomLayout;
