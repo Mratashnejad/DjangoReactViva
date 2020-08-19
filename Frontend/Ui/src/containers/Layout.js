@@ -18,7 +18,7 @@ class CustomLayout extends React.Component {
             defaultSelectedKeys={["2"]}
             style={{ lineHeight: "64px" }}
           >
-            {this.props.isAuthenticated ? (
+            {/* {this.props.isAuthenticated ? (
               <Menu.Item key="2" onClick={this.props.logout}>
                 Logout
               </Menu.Item>
@@ -26,7 +26,7 @@ class CustomLayout extends React.Component {
               <Menu.Item key="2">
                 <Link to="/login">Login</Link>
               </Menu.Item>
-            )}
+            )} */}
 
             <Menu.Item key="1">
               <Link to="/extrashift">Extra Shift </Link>
@@ -58,5 +58,10 @@ class CustomLayout extends React.Component {
     );
   }
 }
+const mapDispatchToProps = dispatch => {
+  return {
+      // logout: () => dispatch(actions.logout()) 
+  }
+}
 
-export default withRouter(connect(null,mapDispatchToProps)(CustomLayout));
+export default  withRouter(connect(null, mapDispatchToProps)(CustomLayout));
