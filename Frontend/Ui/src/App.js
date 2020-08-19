@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
+import { connect } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
 import Customlayout from "./containers/Layout";
 import BaseRouter from "./routes";
+import "antd/dist/antd.css"; // or 'antd/dist/antd.less'
+import * as actions from './store/actions/auth';
 
 function App() {
   return (
