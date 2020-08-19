@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import { connect } from "react-redux";
 
 import { Button, Card } from "antd";
 import ExtrashiftForm from "../components/ExtrashiftForm";
@@ -56,6 +57,10 @@ class ExtrashiftDetailView extends React.Component {
     );
   }
 }
+const mapStateToProps = (state) => {
+  return {
+    token: state.token,
+  };
+};
 
-
-export default ExtrashiftDetailView;
+export default connect(mapStateToProps)(ExtrashiftDetailView);

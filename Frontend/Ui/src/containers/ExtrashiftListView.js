@@ -5,7 +5,7 @@ import ExtrashiftForm from "../components/ExtrashiftForm";
 
 class ExtrashiftlistView extends React.Component {
   state = {
-    Extrashifts: [],
+    Extrashifts: []
   };
 
   fetchExtrashifts = () => {
