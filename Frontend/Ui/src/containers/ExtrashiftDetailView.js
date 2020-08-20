@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { Button, Card } from "antd";
 import ExtrashiftForm from "../components/ExtrashiftForm";
 
-
 class ExtrashiftDetailView extends React.Component {
   state = {
     Extrashift: {},
@@ -48,7 +47,7 @@ class ExtrashiftDetailView extends React.Component {
           ExtrashiftID={this.props.match.params.ExtrashiftID}
           btnText="Update"
         />
-        <form onSubmit={this.handleDelete}>
+        <form onFinish={this.handleDelete}>
           <Button type="danger" htmlType="submit">
             Delete
           </Button>

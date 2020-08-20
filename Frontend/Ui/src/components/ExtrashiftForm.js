@@ -8,13 +8,16 @@ const FormItem = Form.Item;
 class ExtrashiftForm extends React.Component {
   
   handleFormSubmit = async (event, requestType, ExtrashiftID) => {
-    event.preventDefault();
+    // event.preventDefault();
+    
+    const onFinish = values => { console.log('Success:', values) };
+  
+    // const postObj = {
+    //   title: event.target.elements.title.value,
+    //   manager: event.target.elements.manager.value,
+    // };
 
-    const postObj = {
-      title: event.target.elements.title.value,
-      manager: event.target.elements.manager.value,
-    };
-
+  
     axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
     axios.defaults.xsrfCookieName = "csrftoken";
     axios.defaults.headers = {
@@ -24,7 +27,7 @@ class ExtrashiftForm extends React.Component {
 
     if (requestType === "post") {
       await axios
-        .post("http://127.0.0.1:8000/api/create/", postObj)
+        .post("http://127.0.0.1:8000/api/create/", onFinish)
         .then((res) => {
           if (res.status === 201) {
             this.props.history.push(`/`);
@@ -32,7 +35,7 @@ class ExtrashiftForm extends React.Component {
         });
     } else if (requestType === "put") {
       await axios
-        .put(`http://127.0.0.1:8000/api/${ExtrashiftID}/update/`, postObj)
+        .put(`http://127.0.0.1:8000/api/${ExtrashiftID}/update/`, onFinish)
         .then((res) => {
           if (res.status === 200) {
             this.props.history.push(`/`);
@@ -45,7 +48,7 @@ class ExtrashiftForm extends React.Component {
     return (
       <div>
         <Form
-          onSubmit={(event) =>
+          onFinish={(event) =>
             this.handleFormSubmit(
               event,
               this.props.requestType,
