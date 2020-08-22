@@ -1,82 +1,113 @@
-import React from "react";
-import { Form, Input, Button } from "antd";
+import React, { Component } from "react";
+import {
+  Form,
+  Input,
+  Button,
+  PageHeader,
+  Select,
+  DatePicker,
+  message,
+} from "antd";
+import "antd/dist/antd.css";
 import { connect } from "react-redux";
 import axios from "axios";
 
-const FormItem = Form.Item;
+// defualt setting for django
+
+axios.defaults.xsrfCookieName = "csrftoken";
+axios.defaults.xsrfHeaderName = "X-CSRFToken";
+
+// from layout setting
+const formItemLayout = {
+  labelCol: {
+    xs: {
+      span: 24,
+    },
+    sm: {
+      span: 8,
+    },
+  },
+  wrapperCol: {
+    xs: {
+      span: 24,
+    },
+    sm: {
+      span: 16,
+    },
+  },
+};
+
+const tailFormItemLayout = {
+  wrapperCol: {
+    xs: {
+      span: 24,
+      offset: 0,
+    },
+    sm: {
+      span: 16,
+      offset: 8,
+    },
+  },
+};
+
+// end fform layout setting
+
+const onFinish = (values) => {
+  console.log(values);
+  axios.post("http://127.0.0.1:8000/api/create/", {
+    title: values.title,
+    manager: values.manager,
+  });
+};
 
 class ExtrashiftForm extends React.Component {
-  
-  handleFormSubmit = async (event, requestType, ExtrashiftID) => {
-    // event.preventDefault();
-    
-    const onFinish = values => { console.log('Success:', values) };
-  
-    // const postObj = {
-    //   title: event.target.elements.title.value,
-    //   manager: event.target.elements.manager.value,
-    // };
-
-  
-    axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-    axios.defaults.xsrfCookieName = "csrftoken";
-    axios.defaults.headers = {
-      "Content-Type": "application/json",
-      Authorization: `Token ${this.props.token}`,
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "alireza",
+      manager: "sagris",
     };
+  }
+  formRef = React.createRef();
 
-    if (requestType === "post") {
-      await axios
-        .post("http://127.0.0.1:8000/api/create/", onFinish)
-        .then((res) => {
-          if (res.status === 201) {
-            this.props.history.push(`/`);
-          }
-        });
-    } else if (requestType === "put") {
-      await axios
-        .put(`http://127.0.0.1:8000/api/${ExtrashiftID}/update/`, onFinish)
-        .then((res) => {
-          if (res.status === 200) {
-            this.props.history.push(`/`);
-          }
-        });
-    }
+  update = () => {
+    axios
+      .post("http://127.0.0.1:8000/api/create", {
+        title: this.state.title,
+        manager: this.state.manager,
+      })
+      .then((res) => {
+        if (res.status == 200) message.success("data successfully updated!");
+      })
+      .catch((err) => {
+        message.error("data profile failed to update ...");
+      });
   };
 
   render() {
     return (
       <div>
         <Form
-          onFinish={(event) =>
-            this.handleFormSubmit(
-              event,
-              this.props.requestType,
-              this.props.ExtrashiftID
-            )
-          }
+          {...formItemLayout}
+          name="update"
+          onFinish={this.update}
+          ref={this.formRef}
         >
-          <FormItem label="Title :">
+          <Form.Item label="Title :">
             <Input name="title" placeholder="Put a title here" />
-          </FormItem>
-          <FormItem label="Manager :">
+          </Form.Item>
+          <Form.Item label="Manager :">
             <Input name="manager" placeholder="Enter manager name" />
-          </FormItem>
-          <FormItem>
+          </Form.Item>
+          <Form.Item {...tailFormItemLayout}>
             <Button type="primary" htmlType="submit">
               {this.props.btnText}
             </Button>
-          </FormItem>
+          </Form.Item>
         </Form>
       </div>
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    token: state.token,
-  };
-};
-
-export default connect(mapStateToProps)(ExtrashiftForm);
+export default ExtrashiftForm;
