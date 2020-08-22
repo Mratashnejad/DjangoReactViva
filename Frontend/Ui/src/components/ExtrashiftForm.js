@@ -52,32 +52,37 @@ const tailFormItemLayout = {
 
 // end fform layout setting
 
-const onFinish = (values) => {
-  console.log(values);
-  axios.post("http://127.0.0.1:8000/api/create/", {
-    title: values.title,
-    manager: values.manager,
-  });
-};
+// const onFinish = (values) => {
+//   console.log(values);
+//   axios.post("http://127.0.0.1:8000/api/create/", {
+//     title: values.title,
+//     manager: values.manager,
+//   });
+// };
 
 class ExtrashiftForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      title: "alireza",
-      manager: "sagris",
+      Extrashifts: [],
     };
   }
-  formRef = React.createRef();
 
-  update = () => {
+  // componentDidMount() {
+  //   this.fetchExtrashift();
+  // }
+
+  handleSubmit = () => {
     axios
       .post("http://127.0.0.1:8000/api/create", {
-        title: this.state.title,
-        manager: this.state.manager,
+        data: {
+          title: this.props.Extrashifts.title,
+          manager: this.props.Extrashifts.manager
+        },
       })
       .then((res) => {
         if (res.status == 200) message.success("data successfully updated!");
+        this.fetchExtrashift();
       })
       .catch((err) => {
         message.error("data profile failed to update ...");
@@ -90,7 +95,7 @@ class ExtrashiftForm extends React.Component {
         <Form
           {...formItemLayout}
           name="update"
-          onFinish={this.update}
+          onFinish={this.handleSubmit}
           ref={this.formRef}
         >
           <Form.Item label="Title :">
