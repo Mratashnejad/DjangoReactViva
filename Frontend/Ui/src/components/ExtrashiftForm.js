@@ -74,7 +74,7 @@ class ExtrashiftForm extends React.Component {
 
   handleSubmit = () => {
     axios
-      .post("http://127.0.0.1:8000/api/create", {
+      .post("http://127.0.0.1:8000/api/", {
         data: {
           title: this.props.Extrashifts.title,
           manager: this.props.Extrashifts.manager
