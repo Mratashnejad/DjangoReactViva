@@ -73,9 +73,25 @@ class ExtrashiftForm extends React.Component {
           <Form.Item label="Title :" name="title">
             <Input placeholder="Put a title here" />
           </Form.Item>
-          <Form.Item label="Manager :" name="manager">
+          <Form.Item label="slug :" name="slug">
             <Input placeholder="Enter manager name" />
           </Form.Item>
+          <Form.Item label="datetime :" name="datetime">
+            <Input placeholder="Enter manager name" />
+          </Form.Item>
+          <Form.Item label="quantity :" name="quantity">
+            <Input placeholder="Enter manager name" />
+          </Form.Item>
+          <Form.Item label="gender :" name="gender">
+            <Input placeholder="Enter manager name" />
+          </Form.Item>
+          <Form.Item label="Lable :" name="Lable">
+            <Input placeholder="Enter manager name" />
+          </Form.Item>
+          <Form.Item label="Language" name="language">
+            <Input placeholder="Enter manager name" />
+          </Form.Item>
+          
           <Form.Item {...tailFormItemLayout}>
             <Button type="primary" htmlType="submit">
               create
