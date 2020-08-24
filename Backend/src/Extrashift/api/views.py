@@ -1,4 +1,5 @@
 from rest_framework import viewsets
+from rest_framework import permissions
 from Extrashift.models import Extrashift
 from .Serializers import ExtrashiftSerializers
 
@@ -6,14 +7,13 @@ class ExtrashiftViewSet(viewsets.ModelViewSet):
     serializer_class = ExtrashiftSerializers
     queryset = Extrashift.objects.all()
 
-from rest_framework import permissions
-from rest_framework.generics import (
-    ListAPIView,
-    RetrieveAPIView,
-    CreateAPIView,
-    UpdateAPIView,
-    DestroyAPIView
-)
+# from rest_framework.generics import (
+#     ListAPIView,
+#     RetrieveAPIView,
+#     CreateAPIView,
+#     UpdateAPIView,
+#     DestroyAPIView
+# )
 
 
 # # its for List API Object View

@@ -1,15 +1,6 @@
-import React, { Component } from "react";
-import {
-  Form,
-  Input,
-  Button,
-  PageHeader,
-  Select,
-  DatePicker,
-  message,
-} from "antd";
+import React from "react";
+import { Form, Input, Button, message } from "antd";
 import "antd/dist/antd.css";
-import { connect } from "react-redux";
 import axios from "axios";
 
 // defualt setting for django
@@ -52,14 +43,6 @@ const tailFormItemLayout = {
 
 // end fform layout setting
 
-// const onFinish = (values) => {
-//   console.log(values);
-//   axios.post("http://127.0.0.1:8000/api/create/", {
-//     title: values.title,
-//     manager: values.manager,
-//   });
-// };
-
 class ExtrashiftForm extends React.Component {
   constructor(props) {
     super(props);
@@ -68,17 +51,10 @@ class ExtrashiftForm extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.fetchExtrashift();
-  // }
-
-  handleSubmit = () => {
+  handleSubmit = (values) => {
     axios
       .post("http://127.0.0.1:8000/api/", {
-        data: {
-          title: this.props.Extrashifts.title,
-          manager: this.props.Extrashifts.manager
-        },
+        values,
       })
       .then((res) => {
         if (res.status == 200) message.success("data successfully updated!");
@@ -87,26 +63,22 @@ class ExtrashiftForm extends React.Component {
       .catch((err) => {
         message.error("data profile failed to update ...");
       });
+    console.log(values);
   };
 
   render() {
     return (
       <div>
-        <Form
-          {...formItemLayout}
-          name="update"
-          onFinish={this.handleSubmit}
-          ref={this.formRef}
-        >
-          <Form.Item label="Title :">
-            <Input name="title" placeholder="Put a title here" />
+        <Form {...formItemLayout} name="update" onFinish={this.handleSubmit}>
+          <Form.Item label="Title :" name="title">
+            <Input placeholder="Put a title here" />
           </Form.Item>
-          <Form.Item label="Manager :">
-            <Input name="manager" placeholder="Enter manager name" />
+          <Form.Item label="Manager :" name="manager">
+            <Input placeholder="Enter manager name" />
           </Form.Item>
           <Form.Item {...tailFormItemLayout}>
             <Button type="primary" htmlType="submit">
-              {this.props.btnText}
+              create
             </Button>
           </Form.Item>
         </Form>
