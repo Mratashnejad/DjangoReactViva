@@ -52,9 +52,16 @@ class ExtrashiftForm extends React.Component {
   }
 
   handleSubmit = (values) => {
-    axios
-      .post("http://127.0.0.1:8000/api/", {
-        values,
+    
+   axios
+     .post("http://127.0.0.1:8000/api/create/", values, {
+       headers: {
+         "Content-type": "application/json",
+         'X-CSRFToken': document.cookie.split('=')[1],
+         'X-Requested-With': 'XMLHttpRequest',
+         'Content-Type': 'application/json',
+       }
+        
       })
       .then((res) => {
         if (res.status == 200) message.success("data successfully updated!");
